@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ListaZadanToDo.Model
+namespace ListaZadanToDo
 {
-   public class TaskModel
+    public class TaskModel
     {
         public Guid ID { get; set; }
         public string Title { get; set; }
