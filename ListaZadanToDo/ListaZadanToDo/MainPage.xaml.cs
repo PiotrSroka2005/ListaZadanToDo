@@ -10,9 +10,19 @@ namespace ListaZadanToDo
 {
     public partial class MainPage : ContentPage
     {
+        List<TaskModel> tasks = new List<TaskModel>();
         public MainPage()
         {
             InitializeComponent();
+            tasks = JsonConnection.GetFromFile();
+            TasksList.ItemsSource = tasks;
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            tasks = JsonConnection.GetFromFile();
+            TasksList.ItemsSource = tasks;
+        }
+        
     }
 }
