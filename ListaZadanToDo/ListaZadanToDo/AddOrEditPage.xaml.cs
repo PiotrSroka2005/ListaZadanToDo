@@ -12,9 +12,13 @@ namespace ListaZadanToDo
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddOrEditPage : ContentPage
     {
-        public AddOrEditPage()
+        List<TaskModel> list;
+        TaskModel taskModel;
+        public AddOrEditPage(List<TaskModel> _list)
         {
             InitializeComponent();
+            list = _list;
         }
+        
     }
 }

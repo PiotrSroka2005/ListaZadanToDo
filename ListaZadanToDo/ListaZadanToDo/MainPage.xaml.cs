@@ -33,7 +33,19 @@ namespace ListaZadanToDo
                 tasks = JsonConnection.GetFromFile();
                 TasksList.ItemsSource = tasks;
             }
-        }        
+        }
+
+        //private void Add_Clicked(object sender, EventArgs e)
+        //{
+        //    Navigation.PushAsync(new AddEditPage(tasks));
+        //}
+
+
+        //private void Edit_Clicked(object sender, EventArgs e)
+        //{
+        //    if (TasksList.SelectedItem is TaskModel model)
+        //        Navigation.PushAsync(new AddEditPage(tasks, model));
+        //}
 
     }
 }
