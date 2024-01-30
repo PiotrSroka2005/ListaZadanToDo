@@ -20,7 +20,20 @@ namespace ListaZadanToDo
             list = _list;
         }
 
-       
+        public AddOrEditPage(List<TaskModel> list, TaskModel model)
+        {
+            InitializeComponent();
+            this.list = list;
+            taskModel = model;
+            TitleEntry.Text = taskModel.Title;
+            IsImportant.IsChecked = taskModel.Importance == "" ? false : true;
+
+            Add.Clicked -= Add_Clicked;
+            Add.Clicked += Edit_Clicked;
+            Add.Text = "Edytuj";
+            Add.BackgroundColor = Color.Aqua;
+            Title = "Edit Page";
+        }
 
 
         private async void Add_Clicked(object sender, EventArgs e)
