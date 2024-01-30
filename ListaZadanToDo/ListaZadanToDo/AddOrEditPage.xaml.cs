@@ -20,8 +20,9 @@ namespace ListaZadanToDo
             list = _list;
         }
 
-        
-        
+       
+
+
         private async void Add_Clicked(object sender, EventArgs e)
         {
             TaskModel task = new TaskModel();
@@ -35,6 +36,19 @@ namespace ListaZadanToDo
 
             JsonConnection.WriteToFile(list);
             await Navigation.PopToRootAsync();
+        }
+
+        private async void Edit_Clicked(object sender, EventArgs e)
+        {
+            taskModel.Title = TitleEntry.Text;
+            if (IsImportant.IsChecked)
+                taskModel.Importance = "Ważne";
+            else
+                taskModel.Importance = "";
+
+            JsonConnection.WriteToFile(list);
+            await Navigation.PopToRootAsync();
+
         }
 
     }
