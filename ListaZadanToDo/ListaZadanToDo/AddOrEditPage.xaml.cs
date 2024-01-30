@@ -19,6 +19,23 @@ namespace ListaZadanToDo
             InitializeComponent();
             list = _list;
         }
+
         
+        
+        private async void Add_Clicked(object sender, EventArgs e)
+        {
+            TaskModel task = new TaskModel();
+            task.ID = Guid.NewGuid();
+            task.Title = TitleEntry.Text;
+            if (IsImportant.IsChecked)
+                task.Importance = "Ważne";
+            else
+                task.Importance = "";
+            list.Add(task);
+
+            JsonConnection.WriteToFile(list);
+            await Navigation.PopToRootAsync();
+        }
+
     }
 }
