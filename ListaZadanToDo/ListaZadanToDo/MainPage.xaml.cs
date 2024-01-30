@@ -33,7 +33,7 @@ namespace ListaZadanToDo
                 tasks = JsonConnection.GetFromFile();
                 TasksList.ItemsSource = tasks;
             }
-        }
+        }        
 
     }
 }
