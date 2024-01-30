@@ -24,5 +24,16 @@ namespace ListaZadanToDo
             TasksList.ItemsSource = tasks;
         }
         
+        private void Delete_Clicked(object sender, EventArgs e)
+        {
+            if (TasksList.SelectedItem is TaskModel model)
+            {
+                tasks.Remove(model);
+                JsonConnection.WriteToFile(tasks);
+                tasks = JsonConnection.GetFromFile();
+                TasksList.ItemsSource = tasks;
+            }
+        }
+
     }
 }
